@@ -8,6 +8,9 @@
  * @author     Tomas Jakstas <bizabrazija@gmail.com>
  * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  */
+
+require_once LIB . 'Database.php';
+
 class Model {
 
     //child class name
@@ -20,8 +23,7 @@ class Model {
 
     function __construct($id = null) {
 
-        include_once LIB . 'Database.php';
-        $this->db = Database::get_instance();
+        $this->db = new Database();
 
         $this->model = get_class($this);
         $this->table = strtolower($this->model) . 's';

@@ -8,30 +8,30 @@
  * @author     Tomas Jakstas <bizabrazija@gmail.com>
  * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  */
+
+
+//main controller class
+require_once LIB.'Controller.php';
+//helper functions
+require_once(APP . 'helpers/main.php');
+
+require_once(LIB . 'Request.php');
+
+
 class FrontController {
 
     function __construct() {
         
     }
 
-    /**
-     * load libraries
-     */
-    function load_libraries() {
-        include_once(LIB . 'Request.php');
-        include_once(LIB . 'Session.php');
-        $this->config = parse_ini_file(APP . 'configs/config.ini');
-        $this->request = new Request();
-        $this->session = new Session();
-        $this->view = new Template(APP . 'views/', $this->config['template']);
-    }
 
     /**
      * initialize main program
      */
     function init() {
 
-        $this->load_libraries();
+        $this->config = parse_ini_file(APP . 'configs/config.ini');
+        $this->request = new Request();
 
         $controller = $this->request->controller();
         $method = $this->request->method();
@@ -42,7 +42,7 @@ class FrontController {
         try {
             if (file_exists(APP . 'controllers/' . $controller . '.php')) {
                 include APP . 'controllers/' . $controller . '.php';
-                $con = new $controller($this->request, $this->view, $this->session, $this->config);
+                $con = new $controller($this->request, $this->config);
                 if (method_exists($con, $method)) {
                     $con->$method();
                 } else {

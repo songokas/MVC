@@ -10,8 +10,8 @@
  */
 class Main extends Controller {
 
-    function  __construct(Request $request, Template $view, Session $session, $config) {
-        parent::__construct($request, $view, $session, $config);
+    function  __construct(Request $request, $config) {
+        parent::__construct($request, $config);
     }
 
     function show() {

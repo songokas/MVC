@@ -1,11 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 3.3.2deb1
 -- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Nov 30, 2010 at 11:53 AM
--- Server version: 5.1.41
--- PHP Version: 5.3.2-1ubuntu4.5
+
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -30,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `albums` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -56,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(255) NOT NULL,
   `salt` varchar(20) NOT NULL,
   `fullname` varchar(255) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 

@@ -17,18 +17,20 @@ class Database {
     private $result_id;
 
     function __construct() {
-        $this->init();
+        
+        if( empty($this->conn_id))
+            $this->init();
     }
 
     /**
      * retrieve class instance
      * @return <type>
      */
-    static function get_instance() {
-        if (!self::$instance)
-            self::$instance = new Database();
-        return self::$instance;
-    }
+//    static function get_instance() {
+//        if (!self::$instance)
+//            self::$instance = new Database();
+//        return self::$instance;
+//    }
 
     /**
      * initialize database connection
